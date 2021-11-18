@@ -8,10 +8,26 @@ function dd($str){
 }
 
 $db = include 'QueryBuilder.php';
-$posts = $db->getAll('test');
 
-dd($posts);
+$getPosts = $db->getAll('test');
 
+$getPost = $db->getOne('test', '1');
+
+// $createPost = $db->create('test', [
+// 				'id' => '15',
+// 				'title' => 'Whats Upp'
+// 				]);
+
+// $updatePost = $db->update('test', [
+// 				'title' => 'I Love Programming'], 
+// 				$_GET['id']);
+
+// $deletePost = $db->delete('test', $_GET['id']);
+
+
+dd($getPost);
+echo "<hr>";
+dd($getPosts);
 
 
 ?>
