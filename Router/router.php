@@ -11,7 +11,7 @@
 class Router
 {
 	
-	public $routes = [
+	private $routes = [
 					'/' => '/controllers/homepage.php',
 					'/about' => '/controllers/about.php',
 					'/create' => '/controllers/create.php',
@@ -19,7 +19,7 @@ class Router
 					'/update' => '/controllers/update.php',
 				];
 
-	public $route;
+	private $route;
 
 	public function execute($route){
 		$routes = $this->routes;
