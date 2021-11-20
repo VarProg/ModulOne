@@ -17,3 +17,42 @@
 	5) public function delete($table, $id) - функция принимает название таблицы Бд типа string, удаляет строку с данными в таблице по указанному идентификатору $id типа int.
 
 4. Используя статичную функцию make класса Connection, создается соединение с Базой Данных как объект класса QueryBuilder и возвращается при вызове данного файла для дальнейшей работы с компонентом QueryBuilder. 
+
+# Router
+
+1. Вставляем наш компонент Router в переменную $router и тем самым объявляем новый объект класса Router.
+
+	$router = include 'router.php';
+
+2.  Вызываем обьект класса Router методом execute с параметром url адреса для проверки соответствия url адреса с нашими маршрутами, если проверка пройдена, то происходит переадресация на соответствующий маршрут нашего сайта, если нет, ошибка 404.
+
+	$router->execute($_SERVER['REQUEST_URI']);
+	
+# Validator
+
+1. Вставляем наш компонент Validator в переменную $person и тем самым объявляем новый объект класса Validator;
+
+	$person = include 'validator.php';
+	
+2. Указываем email данного объекта методом setEmail('email');
+
+	$person->setEmail($_POST['email']);
+	
+3. Указываем password данного объекта методом setPassword('password');
+
+	$person->setPassword($_POST['password']);
+	
+4. Вызываем метод register для валидации регистрации;
+
+	$person->register();
+	
+5.  Вызываем метод login для валидации авторизации;
+
+	$person->login();
+	
+# Flash
+
+1. Класс Flash;
+Включает в себя два метода:
+Метод setFlashMessage - создает сессию c flash сообщением, принимает $key и $message;
+метод displayFlashMessage - выводит flash сообщение по указанному ключу, принимает $key;
